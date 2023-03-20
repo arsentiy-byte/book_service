@@ -1,0 +1,35 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "book_service",
+        "description": "",
+        "contact": {
+            "email": "asekenskigo@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "developers"
+                ],
+                "summary": "Base action",
+                "description": "",
+                "operationId": "index",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Something went wrong..."
+                    }
+                }
+            }
+        }
+    }
+}
