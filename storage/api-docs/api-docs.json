@@ -13,6 +13,42 @@
         "version": "1.0"
     },
     "paths": {
+        "/books/info": {
+            "post": {
+                "tags": [
+                    "books"
+                ],
+                "summary": "Get Book Information",
+                "description": "Returns book information",
+                "operationId": "bookInfo",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BookInfoRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Book information is successfully returned.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BookInfoResource"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
         "/": {
             "get": {
                 "tags": [
@@ -29,6 +65,69 @@
                         "description": "Something went wrong..."
                     }
                 }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "BookInfoRequest": {
+                "required": [
+                    "data"
+                ],
+                "properties": {
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "createdAt": {
+                                    "type": "string",
+                                    "format": "date"
+                                },
+                                "title": {
+                                    "type": "string"
+                                },
+                                "descr": {
+                                    "type": "string"
+                                },
+                                "author": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "BookInfoResource": {
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "descr": {
+                        "type": "string"
+                    },
+                    "author": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
             }
         }
     }
